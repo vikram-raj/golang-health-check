@@ -23,12 +23,6 @@ parameters:
     displayName: Source Branch
     value: master
     required: true
-  - name: GITHUB_WEBHOOK_SECRET
-    description: A secret string used to configure the GitHub webhook.
-    displayName: GitHub Webhook Secret
-    required: true
-    from: '[a-zA-Z0-9]{40}'
-    generate: expression
 objects:
   - apiVersion: image.openshift.io/v1
     kind: ImageStream
@@ -62,11 +56,6 @@ objects:
             kind: DockerImage
             name: 'centos/go-toolset-7-centos7'
           incremental: true
-      triggers:
-        - github:
-            secret: '${GITHUB_WEBHOOK_SECRET}'
-          type: GitHub
-        - type: ConfigChange
     status:
       lastVersion: 0
   - apiVersion: v1
