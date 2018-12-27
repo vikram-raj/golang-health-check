@@ -12,9 +12,7 @@ func main() {
 	http.HandleFunc("/api/greeting", greeting)
 	http.HandleFunc("/api/stop", stop)
 	http.HandleFunc("/api/health", health)
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "public/index.html")
-	})
+	http.Handle("/", http.FileServer(assetFS()))
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
