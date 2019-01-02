@@ -1,5 +1,5 @@
 # Golang Health Check
-Booster demonstrating health checks and recovery using the kubernetes/openshift
+A booster demonstrating health checks and recovery using the kubernetes/openshift
 `liveliness` and `readiness` probes.
 
 
